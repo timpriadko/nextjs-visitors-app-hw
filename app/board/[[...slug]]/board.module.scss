@@ -1,0 +1,35 @@
+.container {
+  container-type: inline-size;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  color: black;
+  text-decoration: none;
+
+  &:has(span) {
+    background-color: yellow;
+  }
+  &:has(p) {
+    background-color: blue;
+  }
+}
+
+:nth-child(2n of .card) {
+  color: white;
+}
+
+@container (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    text-align: center;
+  }
+}
