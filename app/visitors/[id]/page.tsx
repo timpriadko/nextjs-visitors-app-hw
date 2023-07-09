@@ -1,11 +1,19 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
 import Email from '../../assets/email.svg';
 
 import styles from './visitors.module.css';
 
+type Props = {
+  params: { id: string };
+};
+
 // Dynamic metadata
-export async function generateMetadata({ params }) {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { id } = params;
 
   const singleDataItem = await getDataItem(id);
