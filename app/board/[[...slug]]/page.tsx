@@ -1,29 +1,16 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
-import type { Metadata } from 'next';
-import cx from 'classnames';
+]import Image from "next/image";
+import Link from "next/link";
+import { lora, sourceCodePro700 } from "../../../styles/fonts/fonts";
+import type { Metadata } from "next";
+import getVisitorsData from "../../utils/visitorsDataFetch";
+import cx from "classnames";
 
-import styles from './board.module.scss';
+import styles from "./board.module.scss";
 
 export const metadata: Metadata = {
-  title: 'Board page with Visitors',
-  description: 'Welcome to Next.js',
+  title: "Board page with Visitors",
+  description: "Welcome to Next.js",
 };
-
-export async function getVisitorsData(): Promise<any> {
-  const res = await fetch('https://reqres.in/api/users');
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json() || {};
-}
 
 export default async function Page({ params }) {
   const { slug } = params;
@@ -77,7 +64,7 @@ export default async function Page({ params }) {
   const data = await getVisitorsData();
   const visitorsData = data.data;
 
-  console.log('Page', {
+  console.log("Page", {
     visitorsData,
     env: process.env.HOST,
   });
