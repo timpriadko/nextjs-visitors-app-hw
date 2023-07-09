@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Welcome to Next.js',
 };
 
-export async function getVisitorsData() {
+export async function getVisitorsData(): Promise<any> {
   const res = await fetch('https://reqres.in/api/users');
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
