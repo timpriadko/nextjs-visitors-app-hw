@@ -1,15 +1,15 @@
-]import Image from "next/image";
-import Link from "next/link";
-import { lora, sourceCodePro700 } from "../../../styles/fonts/fonts";
-import type { Metadata } from "next";
-import getVisitorsData from "../../utils/visitorsDataFetch";
-import cx from "classnames";
+import Image from 'next/image';
+import Link from 'next/link';
+import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
+import type { Metadata } from 'next';
+import getVisitorsData from '../../utils/visitorsDataFetch';
+import cx from 'classnames';
 
-import styles from "./board.module.scss";
+import styles from './board.module.scss';
 
 export const metadata: Metadata = {
-  title: "Board page with Visitors",
-  description: "Welcome to Next.js",
+  title: 'Board page with Visitors',
+  description: 'Welcome to Next.js',
 };
 
 export default async function Page({ params }) {
@@ -64,7 +64,7 @@ export default async function Page({ params }) {
   const data = await getVisitorsData();
   const visitorsData = data.data;
 
-  console.log("Page", {
+  console.log('Page', {
     visitorsData,
     env: process.env.HOST,
   });
