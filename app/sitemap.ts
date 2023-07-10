@@ -1,4 +1,4 @@
-import { getVisitorsData } from './board/[[...slug]]/page';
+import getVisitorsData from './utils/visitorsDataFetch';
 
 const URL = process.env.HOST;
 
