@@ -1,4 +1,5 @@
 import type { JSXElementConstructor, ReactElement } from 'react';
+import '../styles/globals.css';
 
 type LayoutProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
