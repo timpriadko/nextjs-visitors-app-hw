@@ -1,0 +1,28 @@
+.formItem {
+  @apply flex justify-center flex-col items-center mb-2;
+
+  label {
+    @apply text-left;
+  }
+
+  input,
+  textarea {
+    @apply border-solid border-2 border-gray-500
+		w-full;
+  }
+}
+
+.error {
+  label {
+    @apply text-red-800;
+  }
+
+  input,
+  textarea {
+    @apply border-red-500;
+  }
+
+  & > div {
+    @apply text-red-600;
+  }
+}

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
 import type { Metadata } from 'next';
 import getVisitorsData from '../../utils/visitorsDataFetch';
+import ClientComponentWrapper from '../../utils/ClientComponentWrapper';
+import ContactUsForm from '../../molecules/ContactUsForm/ContactUsFrom';
 import cx from 'classnames';
 
 import styles from './board.module.scss';
@@ -71,7 +73,7 @@ export default async function Page({ params }) {
 
   return (
     <div className={styles.container}>
-      <h1>Hello, {slug}!</h1>
+      <h1>{`Hello${!!slug ? `, ${slug}!` : '!'}`}</h1>
       <div className={styles.wrapper}>
         {visitorsData.length &&
           visitorsData.map((visitor) => (
@@ -107,6 +109,18 @@ export default async function Page({ params }) {
               </div>
             </Link>
           ))}
+      </div>
+
+      <div className="mt-14 flex justify-center flex-col items-center">
+        <h3 className="font-medium text-xl">
+          If You have any questions You can contact us
+        </h3>
+
+        <div className="mt-2 max-w-2xl">
+          <ClientComponentWrapper>
+            <ContactUsForm />
+          </ClientComponentWrapper>
+        </div>
       </div>
     </div>
   );
