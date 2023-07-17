@@ -81,7 +81,7 @@ export default async function Page({ params }) {
               href={`visitors/${visitor.id}`}
               key={visitor.id}
               // className={styles.card}
-              className={cx(styles.card, {
+              className={cx(styles.card, 'ps-3 pe-3', {
                 [styles.card__odd]: +visitor.id % 2 === 1,
               })}
             >
