@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
 import Email from '../../assets/email.svg';
 
-import styles from './visitors.module.css';
+import styles from './visitors.module.scss';
 
 type Props = {
   params: { id: string };
