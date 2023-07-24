@@ -85,7 +85,7 @@ export default async function Page({ params }) {
                 [styles.card__odd]: +visitor.id % 2 === 1,
               })}
             >
-              <div>
+              <div className={cx(styles.cardWrapper)}>
                 <Image
                   key={visitor.id}
                   src={visitor.avatar}
@@ -116,7 +116,7 @@ export default async function Page({ params }) {
           If You have any questions You can contact us
         </h3>
 
-        <div className="mt-2 max-w-2xl">
+        <div className="mt-4 w-full">
           <ClientComponentWrapper>
             <ContactUsForm />
           </ClientComponentWrapper>

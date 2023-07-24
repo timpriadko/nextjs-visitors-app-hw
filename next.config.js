@@ -2,6 +2,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
   images: {
     remotePatterns: [
       {
