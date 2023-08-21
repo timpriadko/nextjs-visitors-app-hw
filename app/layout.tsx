@@ -1,4 +1,5 @@
 import type { JSXElementConstructor, ReactElement } from 'react';
+import GoogleAnalytics from './atoms/GoogleAnalytics/GoogleAnalytics';
 import '../styles/globals.css';
 
 type LayoutProps = {
@@ -8,12 +9,16 @@ type LayoutProps = {
 
 export default function Layout(props: LayoutProps) {
   const { children } = props;
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+    ? process.env.NEXT_PUBLIC_GA_ID
+    : '';
 
   return (
     <html>
       <head>
         <title>Next.js - Visitors app</title>
       </head>
+      <GoogleAnalytics GA_MEASUREMENT_ID={GA_ID} />
       <body>{children}</body>
     </html>
   );
