@@ -6,6 +6,8 @@ import getVisitorsData from '../../utils/visitorsDataFetch';
 import ClientComponentWrapper from '../../utils/ClientComponentWrapper';
 import ContactUsForm from '../../molecules/ContactUsForm/ContactUsFrom';
 import cx from 'classnames';
+import { Suspense } from 'react';
+import Loading from '../../atoms/Loading/Loading';
 
 import styles from './board.module.scss';
 
@@ -74,53 +76,57 @@ export default async function Page({ params }) {
   return (
     <div className={styles.container}>
       <h1>{`Hello${!!slug ? `, ${slug}!` : '!'}`}</h1>
-      <div className={styles.wrapper}>
-        {visitorsData.length &&
-          visitorsData.map((visitor) => (
-            <Link
-              href={`visitors/${visitor.id}`}
-              key={visitor.id}
-              // className={styles.card}
-              className={cx(styles.card, 'ps-3 pe-3', {
-                [styles.card__odd]: +visitor.id % 2 === 1,
-              })}
-            >
-              <div className={cx(styles.cardWrapper)}>
-                <Image
-                  key={visitor.id}
-                  src={visitor.avatar}
-                  alt={`${visitor.first_name} ${visitor.last_name} avatar`}
-                  width={50}
-                  height={50}
-                />
 
-                <h3
-                  style={lora.style}
-                >{`${visitor.first_name} ${visitor.last_name}`}</h3>
-                {+visitor.id % 2 === 1 ? (
-                  <div className={sourceCodePro700.className}>
-                    <span>{`${visitor.email}`}</span>
-                  </div>
-                ) : (
-                  <p className={sourceCodePro700.className}>
-                    {`${visitor.email}`}
-                  </p>
-                )}
-              </div>
-            </Link>
-          ))}
-      </div>
+      <Suspense fallback={<Loading />}>
+        <div className={styles.wrapper}>
+          {visitorsData.length &&
+            visitorsData.map((visitor) => (
+              <Link
+                href={`visitors/${visitor.id}`}
+                key={visitor.id}
+                // className={styles.card}
+                className={cx(styles.card, 'ps-3 pe-3', {
+                  [styles.card__odd]: +visitor.id % 2 === 1,
+                })}
+              >
+                <div className={cx(styles.cardWrapper)}>
+                  <Image
+                    key={visitor.id}
+                    src={visitor.avatar}
+                    alt={`${visitor.first_name} ${visitor.last_name} avatar`}
+                    width={50}
+                    height={50}
+                  />
 
+                  <h3
+                    style={lora.style}
+                  >{`${visitor.first_name} ${visitor.last_name}`}</h3>
+                  {+visitor.id % 2 === 1 ? (
+                    <div className={sourceCodePro700.className}>
+                      <span>{`${visitor.email}`}</span>
+                    </div>
+                  ) : (
+                    <p className={sourceCodePro700.className}>
+                      {`${visitor.email}`}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            ))}
+        </div>
+      </Suspense>
       <div className="mt-14 flex justify-center flex-col items-center">
         <h3 className="font-medium text-xl">
           If You have any questions You can contact us
         </h3>
 
-        <div className="mt-4 w-full">
-          <ClientComponentWrapper>
-            <ContactUsForm />
-          </ClientComponentWrapper>
-        </div>
+        <Suspense fallback={<Loading />}>
+          <div className="mt-4 w-full">
+            <ClientComponentWrapper>
+              <ContactUsForm />
+            </ClientComponentWrapper>
+          </div>
+        </Suspense>
       </div>
     </div>
   );
