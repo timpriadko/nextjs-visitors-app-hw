@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div>
+    <div className="w-screen h-screen flex justify-center items-center">
       <Link href={`/board`}>
-        <h2 className="font-medium text-gray-200 group-hover:text-gray-50">
+        <h2 className="font-bold text-3xl text-black-500 group-hover:text-gray-50">
           Go to board
         </h2>
       </Link>
