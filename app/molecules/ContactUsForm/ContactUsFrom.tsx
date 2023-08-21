@@ -7,6 +7,7 @@ import GreenCheckMarkVerified from '../../assets/greenCheckMarkVerified.svg';
 import styles from './contactUsFrom.module.scss';
 import { useState } from 'react';
 import useAxios from 'axios-hooks';
+import { useId } from 'react';
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('User name is required'),
@@ -30,6 +31,9 @@ const initialValues: FormData = {
 
 const ContactUsForm = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const usernameId = useId();
+  const emailId = useId();
+  const msgId = useId();
 
   const [
     { data: formFetchData, loading: formFetchLoading, error: formFetchError },
@@ -93,8 +97,8 @@ const ContactUsForm = () => {
                 [styles['error']]: errors.username && touched.username,
               })}
             >
-              <label htmlFor="username">User Name</label>
-              <Field type="text" name="username" />
+              <label htmlFor={usernameId}>User Name</label>
+              <Field type="text" name="username" id={usernameId} />
               <ErrorMessage
                 name="username"
                 component="div"
@@ -107,8 +111,8 @@ const ContactUsForm = () => {
                 [styles['error']]: errors.email && touched.email,
               })}
             >
-              <label htmlFor="email">Email</label>
-              <Field type="email" name="email" />
+              <label htmlFor={emailId}>Email</label>
+              <Field type="email" name="email" id={emailId} />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -121,8 +125,8 @@ const ContactUsForm = () => {
                 [styles['error']]: errors.message && touched.message,
               })}
             >
-              <label htmlFor="message">Message</label>
-              <Field as="textarea" name="message" />
+              <label htmlFor={msgId}>Message</label>
+              <Field as="textarea" name="message" id={msgId} />
               <ErrorMessage
                 name="message"
                 component="div"
