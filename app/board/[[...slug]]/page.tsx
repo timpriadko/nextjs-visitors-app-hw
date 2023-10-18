@@ -1,19 +1,19 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
-import type { Metadata } from 'next';
-import getVisitorsData from '../../utils/visitorsDataFetch';
-import ClientComponentWrapper from '../../utils/ClientComponentWrapper';
-import ContactUsForm from '../../molecules/ContactUsForm/ContactUsFrom';
-import cx from 'classnames';
-import { Suspense } from 'react';
-import Loading from '../../atoms/Loading/Loading';
+import Image from "next/image";
+import Link from "next/link";
+import { lora, sourceCodePro700 } from "../../../styles/fonts/fonts";
+import type { Metadata } from "next";
+import getVisitorsData from "../../utils/visitorsDataFetch";
+import ClientComponentWrapper from "../../utils/ClientComponentWrapper";
+import ContactUsForm from "../../components/molecules/ContactUsForm/ContactUsFrom";
+import cx from "classnames";
+import { Suspense } from "react";
+import Loading from "../../components/atoms/Loading/Loading";
 
-import styles from './board.module.scss';
+import styles from "./board.module.scss";
 
 export const metadata: Metadata = {
-  title: 'Board page with Visitors',
-  description: 'Welcome to Next.js',
+  title: "Board page with Visitors",
+  description: "Welcome to Next.js",
 };
 
 export default async function Page({ params }) {
@@ -68,14 +68,14 @@ export default async function Page({ params }) {
   const data = await getVisitorsData();
   const visitorsData = data.data;
 
-  console.log('Page', {
+  console.log("Page", {
     visitorsData,
     env: process.env.HOST,
   });
 
   return (
     <div className={styles.container}>
-      <h1>{`Hello${!!slug ? `, ${slug}!` : '!'}`}</h1>
+      <h1>{`Hello${!!slug ? `, ${slug}!` : "!"}`}</h1>
 
       <Suspense fallback={<Loading />}>
         <div className={styles.wrapper}>
@@ -85,7 +85,7 @@ export default async function Page({ params }) {
                 href={`visitors/${visitor.id}`}
                 key={visitor.id}
                 // className={styles.card}
-                className={cx(styles.card, 'ps-3 pe-3', {
+                className={cx(styles.card, "ps-3 pe-3", {
                   [styles.card__odd]: +visitor.id % 2 === 1,
                 })}
               >
@@ -115,13 +115,13 @@ export default async function Page({ params }) {
             ))}
         </div>
       </Suspense>
-      <div className="mt-14 flex justify-center flex-col items-center">
-        <h3 className="font-medium text-xl">
+      <div className='mt-14 flex justify-center flex-col items-center'>
+        <h3 className='font-medium text-xl'>
           If You have any questions You can contact us
         </h3>
 
         <Suspense fallback={<Loading />}>
-          <div className="mt-4 w-full">
+          <div className='mt-4 w-full'>
             <ClientComponentWrapper>
               <ContactUsForm />
             </ClientComponentWrapper>
