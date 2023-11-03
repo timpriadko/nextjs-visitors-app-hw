@@ -83,7 +83,8 @@ function EventsGoogleMap() {
         // onLoad={onLoad}
         position={eventsData[0].position}
         options={{
-          icon: MeetupMarker,
+          // icon: MeetupMarker,
+          icon: "https://raw.githubusercontent.com/timpriadko/nextjs-visitors-app-hw/a8e2f797fd158714fdbab7a26c247098a4739bd4/public/assets/images/reshot-icon-map-marker-TDJ2KX5LNA.svg",
         }}
       />
       {/* </> */}
