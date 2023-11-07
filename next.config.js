@@ -2,20 +2,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
+  pageExtensions: ["mdx", "md", "jsx", "js", "tsx", "ts"],
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'reqres.in',
-        pathname: '**',
-      },
-    ],
+    domains: ["reqres.in", "raw.githubusercontent.com"],
   },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
     return config;
   },
