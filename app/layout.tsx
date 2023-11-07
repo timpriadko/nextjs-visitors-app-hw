@@ -1,5 +1,6 @@
 import type { JSXElementConstructor, ReactElement } from "react";
 import GoogleAnalytics from "./components/atoms/GoogleAnalytics/GoogleAnalytics";
+import Footer from "./components/molecules/Footer/Footer";
 import "../styles/globals.css";
 
 type LayoutProps = {
@@ -19,7 +20,13 @@ export default function Layout(props: LayoutProps) {
         <title>Next.js - Visitors app</title>
       </head>
       <GoogleAnalytics GA_MEASUREMENT_ID={GA_ID} />
-      <body>{children}</body>
+      <body className='min-h-screen flex flex-col container'>
+        <section>
+          <header></header>
+          <main>{children}</main>
+        </section>
+        <Footer />
+      </body>
     </html>
   );
 }

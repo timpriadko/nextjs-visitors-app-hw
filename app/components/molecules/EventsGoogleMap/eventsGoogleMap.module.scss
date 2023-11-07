@@ -1,0 +1,41 @@
+.infoWindow {
+  max-width: 244px;
+
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 120px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__header {
+    @apply py-2.5 px-4;
+
+    & > span {
+      @apply font-bold text-xs mb-1 inline-block;
+    }
+
+    h4 {
+      @apply text-blue-700 text-lg font-bold leading-tight;
+    }
+  }
+
+  &__body {
+    @apply pb-2.5 pt-4 px-4;
+
+    &__textColumns {
+      @apply flex justify-between text-xs leading-normal;
+
+      &__left {
+        @apply mr-4;
+      }
+
+      &__right {
+        @apply text-right;
+      }
+    }
+  }
+}
