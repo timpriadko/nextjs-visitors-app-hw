@@ -14,16 +14,16 @@ const Footer = () => {
           Home
         </Link>
         <Link
-          href={`/events`}
-          className='text-white hover:text-slate-300 ease-in duration-100'
-        >
-          Events
-        </Link>
-        <Link
           href={`/board`}
           className='text-white hover:text-slate-300 ease-in duration-100'
         >
           Visitors board
+        </Link>
+        <Link
+          href={`/events`}
+          className='text-white hover:text-slate-300 ease-in duration-100'
+        >
+          Events
         </Link>
       </div>
     </footer>

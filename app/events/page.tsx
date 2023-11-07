@@ -1,6 +1,6 @@
 "use client";
 
-import EventsGoogleMap from "../components/atoms/EventsGoogleMap";
+import EventsGoogleMap from "../components/molecules/EventsGoogleMap";
 
 export default async function EventsPage({ params }) {
   return (
