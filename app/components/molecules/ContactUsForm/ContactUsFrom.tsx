@@ -3,7 +3,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import cx from "classnames";
-import GreenCheckMarkVerified from "../../../assets/greenCheckMarkVerified.svg";
+import GreenCheckMarkVerified from "../../../../public/assets/images/greenCheckMarkVerified.svg";
 import styles from "./contactUsFrom.module.scss";
 import { useState } from "react";
 import useAxios from "axios-hooks";
@@ -55,9 +55,6 @@ const ContactUsForm = () => {
     })
       .then((res) => res)
       .then((data) => {
-        console.log("data-handleSubmit", {
-          data,
-        });
         setIsFormSubmitted(true);
       });
   };

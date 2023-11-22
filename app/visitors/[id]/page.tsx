@@ -1,9 +1,9 @@
-import { Metadata, ResolvingMetadata } from 'next';
-import Image from 'next/image';
-import { lora, sourceCodePro700 } from '../../../styles/fonts/fonts';
-import Email from '../../assets/email.svg';
+import { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
+import { lora, sourceCodePro700 } from "../../../styles/fonts/fonts";
+import Email from "../../../public/assets/images/email.svg";
 
-import styles from './visitors.module.scss';
+import styles from "./visitors.module.scss";
 
 type Props = {
   params: { id: string };
@@ -21,10 +21,10 @@ export async function generateMetadata(
 
   return {
     title: `${visitorsData.first_name} ${visitorsData.last_name}`,
-    description: 'Single Visitor page description',
+    description: "Single Visitor page description",
     openGraph: {
       title: `${visitorsData.first_name} ${visitorsData.last_name}`,
-      description: 'Single Visitor page description',
+      description: "Single Visitor page description",
       images: [
         {
           url: `${visitorsData.avatar}`,
@@ -44,7 +44,7 @@ async function getDataItem(id) {
   // Recommendation: handle errors
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
@@ -56,7 +56,7 @@ export default async function Page({ params }) {
   const singleDataItem = await getDataItem(id);
   const visitorsData = singleDataItem.data;
 
-  console.log('singleDataItem', {
+  console.log("singleDataItem", {
     singleDataItem,
     visitorsData,
   });
