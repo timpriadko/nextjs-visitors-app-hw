@@ -20,7 +20,7 @@ export default function Layout(props: LayoutProps) {
         <title>Next.js - Visitors app</title>
       </head>
       <GoogleAnalytics GA_MEASUREMENT_ID={GA_ID} />
-      <body className='min-h-screen flex flex-col container'>
+      <body className='min-h-screen flex flex-col'>
         <section>
           <header></header>
           <main>{children}</main>

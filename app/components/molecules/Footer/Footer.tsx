@@ -5,7 +5,7 @@ import styles from "./footer.module.scss";
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} container`}>
+    <footer className={`${styles.footer}`}>
       <div className={styles.links}>
         <Link
           href={`/`}
