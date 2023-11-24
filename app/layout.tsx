@@ -10,16 +10,22 @@ type LayoutProps = {
 
 export default function Layout(props: LayoutProps) {
   const { children } = props;
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID
-    ? process.env.NEXT_PUBLIC_GA_ID
-    : "";
+  // todo - rm
+  // const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+  //   ? process.env.NEXT_PUBLIC_GA_ID
+  //   : "";
+
+  // todo - rm
+  // console.log("Layout", {
+  //   "process.env.NEXT_PUBLIC_GA_ID": process.env.NEXT_PUBLIC_GA_ID,
+  // });
 
   return (
     <html>
       <head>
         <title>Next.js - Visitors app</title>
       </head>
-      <GoogleAnalytics GA_MEASUREMENT_ID={GA_ID} />
+      <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID} />
       <body className='min-h-screen flex flex-col'>
         <section>
           <header></header>
