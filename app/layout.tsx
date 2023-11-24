@@ -10,15 +10,6 @@ type LayoutProps = {
 
 export default function Layout(props: LayoutProps) {
   const { children } = props;
-  // todo - rm
-  // const GA_ID = process.env.NEXT_PUBLIC_GA_ID
-  //   ? process.env.NEXT_PUBLIC_GA_ID
-  //   : "";
-
-  // todo - rm
-  // console.log("Layout", {
-  //   "process.env.NEXT_PUBLIC_GA_ID": process.env.NEXT_PUBLIC_GA_ID,
-  // });
 
   return (
     <html>
